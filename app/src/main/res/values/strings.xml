@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Games</string>
+    <string name="tic_tac_toe_button_text">Tic Tac Toe</string>
+    <string name="four_in_a_row_button_text">4 in a row</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="game_tag">Game:</string>
+    <string name="four_in_a_row_tag">4 in a Row</string>
+    <string name="four_in_a_row_tag_ver2">4 in a Row Ver2</string>
+    <string name="tic_tac_toe_tag">Tic Tac Toe</string>
+    <string name="tic_tac_toe_name">Tic Tac Toe</string>
+    <string name="new_game_start_message">New game will Start !!!</string>
+</resources>
