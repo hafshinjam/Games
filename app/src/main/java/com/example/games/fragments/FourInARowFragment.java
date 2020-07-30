@@ -19,7 +19,7 @@ import com.example.games.R;
 public class FourInARowFragment extends Fragment {
     private Button[][] mCellButtons = new Button[5][5];
     private String[][] mCellCondition = new String[5][5];
-
+    private String SAVED_CELL_CONDITION_TYPE = "com.example.games.fragments.CellConditionType";
 
     private int player1Score = 0;
     private int player2Score = 0;
@@ -29,7 +29,11 @@ public class FourInARowFragment extends Fragment {
     public FourInARowFragment() {
         // Required empty public constructor
     }
-
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(SAVED_CELL_CONDITION_TYPE, mCellCondition);
+    }
 
 
     @Override
@@ -42,6 +46,17 @@ public class FourInARowFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_four_in_a_row, container, false);
         findViews(view);
+        if (savedInstanceState != null) {
+            mCellCondition = (String[][]) savedInstanceState.getSerializable(SAVED_CELL_CONDITION_TYPE);
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+                    if (mCellCondition[i][j].equals("player1"))
+                        mCellButtons[i][j].setBackgroundColor(Color.RED);
+                    else if (mCellCondition[i][j].equals("player2"))
+                        mCellButtons[i][j].setBackgroundColor(Color.BLUE);
+                }
+            }
+        } else
             clearConditions();
         setClickListener();
         return view;
